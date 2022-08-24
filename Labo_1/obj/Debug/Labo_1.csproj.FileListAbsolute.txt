@@ -1,0 +1,11 @@
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\bin\Debug\Labo_1.exe.config
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\bin\Debug\Labo_1.exe
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\bin\Debug\Labo_1.pdb
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.csproj.AssemblyReference.cache
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.csproj.SuggestedBindingRedirects.cache
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.Form1.resources
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.Properties.Resources.resources
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.csproj.GenerateResource.cache
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.csproj.CoreCompileInputs.cache
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.exe
+C:\Users\fagui\Documents\22A\Prog\Labo\Labo_1\obj\Debug\Labo_1.pdb
