@@ -8,3 +8,4 @@ C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_2_F.A.Guimont\obj\Debug\L
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_2_F.A.Guimont\obj\Debug\Labo_2_F.A.Guimont.csproj.CoreCompileInputs.cache
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_2_F.A.Guimont\obj\Debug\Labo_2_F.A.Guimont.exe
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_2_F.A.Guimont\obj\Debug\Labo_2_F.A.Guimont.pdb
+C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_2_F.A.Guimont\obj\Debug\Labo_2_F.A.Guimont.Form1.resources

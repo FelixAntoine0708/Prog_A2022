@@ -1,4 +1,18 @@
-﻿using System;
+﻿//Fait par: Félix-Antoine Guimont
+//29 aout 2022 - A2022
+//
+//Ce laboratoire nous fait apprendre comment utiliser les caractères en C#. Dans ce dernier, 
+//il faut faire une fenêtre de Windows qui va afficher deux cases de texte. Une des cases 
+//peut recevoir du texte et l’autre ne fait que de le montrer à l’utilisateur. Par la suite, 
+//il y a 12 boutons qui font différentes choses. Par exemple : Retire espace, Inverse Car qui 
+//inverse les caractères comme si nous lisons de droite à gauche, Saute Un Car qui saute un 
+//caractère et qui écrit le prochain, Maj et min qui écrit une lettre en Majuscule et l’autre
+//en minuscule, un seul espace qui efface les doubles espaces et/ou les espaces au début et la
+//fin de la phrase, Inverse mot, compte mot, Rotation qui prend la dernière lettre et la met 
+//au début, ASCII qui change tous les caractères en code ASCII respectif, Mot de Passe qui 
+//regard si le texte écrit est un bon mot de passe ou non, puis il y a quitté. 
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
