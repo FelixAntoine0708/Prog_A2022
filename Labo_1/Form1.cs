@@ -19,6 +19,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -122,8 +123,8 @@ namespace Labo_1
             string oneSpace = textBox1.Text.Replace("  ", " ").Trim();    // remplace la double espaces pour une seul espace 
             textBox2.Text = "";
 
-            foreach (char c in oneSpace)
-                textBox2.Text = textBox2.Text + c;  // recopie le textBox1.text dans textBox2.Text  un par un
+            textBox2.Text = Regex.Replace(oneSpace, @"\s+", " "); // met dans textBox2 ce qu'il y a dans textBox1 le @ signifie qui doit matcher, le \s+ signifie la ou les espace. Le dernier paramètre est ce qui va mettre dans la phrase   
+    
         }
 
         /// <summary>
@@ -154,7 +155,7 @@ namespace Labo_1
             string[] wrd = textBox2.Text.Split(separate);   //sépare tout les mots et les met dans wrd
             int i = 0;
 
-            foreach (string s in wrd)   //pour chauqe mot dans la string wrd
+            foreach (string s in wrd)   //pour chaque mot dans la string wrd
             {
                 if (string.IsNullOrEmpty(textBox2.Text))    // si la boite est vide 
                     i = 0;  // les mot sont a zéro

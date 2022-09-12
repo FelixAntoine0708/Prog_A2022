@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MachineDistributrice
+namespace Labo_2_F.A.Guimont
 {
     /// <summary>
     /// Classe qui permet de générer le texte à afficher sur 4 lignes en fonction de différentes informations
@@ -68,7 +68,7 @@ namespace MachineDistributrice
         private Boolean     annulationActive_    = false;
         private Boolean     manqueCreditActif_   = false;
         private Boolean     quantiteZeroActif_   = false;
-        private int      etatCourantAffichage_       = (int)etatAffichage.Init;
+        private int      etatCourantAffichage_       = (int)etatAffichage.Init; 
 
         /// <summary>
         /// Constructeur
@@ -179,7 +179,7 @@ namespace MachineDistributrice
                         break;
                     case (int)etatAffichage.AttenteConfirmation:
                         lignesAffichage_[0] = "Appuyer sur ENTER pour confirmer";
-                        lignesAffichage_[1] = "Case sélectionnée: " + Convert.ToChar(rangeeSelectionnee_ + 'A') + Convert.ToChar(colonneSelectionnee_ + '0');
+                        lignesAffichage_[1] = "Case sélectionnée: " + Convert.ToChar(rangeeSelectionnee_ + 'A') + Convert.ToChar(colonneSelectionnee_ + '0');   // modifier nom ici*********
                         valeurDollars = Convert.ToDouble(prixCourant_) / 100.0f;
                         stringDollars = String.Format("{0:0.00}", valeurDollars);
                         lignesAffichage_[2] = "Prix ($): " + stringDollars;
