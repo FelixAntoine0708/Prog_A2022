@@ -333,6 +333,8 @@ namespace Labo_2_F.A.Guimont
             {
                 m_distributionActive = false;
                 m_tabInventaire[m_indexRangee, m_indexColonne].diminuerInventaire();
+                PriceTextB.Text = m_tabInventaire[m_indexRangee, m_indexColonne].prix.ToString();
+                QuantityTextB.Text = m_tabInventaire[m_indexRangee, m_indexColonne].quantite.ToString();
                 m_indexRangee = 255;
                 m_indexColonne = 255;
                 m_prixCourant = 0;
