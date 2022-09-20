@@ -62,24 +62,24 @@ namespace Labo_2_F.A.Guimont
             int price = 0;
             int result = 0;
 
-            if (oQuantite >= 1 && oQuantite <= 9)
+            if (oQuantite >= 1 && oQuantite <= 9)   //si la quantité est entre 1 et 9 
             {
-                quant = 1;
-                if (oPrix >= 25 && oPrix <= 300)
+                quant = 1;  // met l'affirmation que la quantité est bon
+                if (oPrix >= 25 && oPrix <= 300)    //si le prix est entre 0.25$ et 3$
                 {
-                    if ((oPrix % 5)==0)
-                        price = 1;
+                    if ((oPrix % 5)==0) //si le prix est un multiple de 5
+                        price = 1;  // met l'affirmation que le prix est bon
                 }
             }
-            result = quant + price;
+            result = quant + price; //regarde les deux affirmation
 
 
-            if (result == 2)
-                return true;
+            if (result == 2)    //si les deux affirmation son bonne
+                return true;    //retourne vrai
                 
             else
-                return false;
-                
+                return false;   //retourne faux
+
         }
 
         /// <summary>
@@ -87,16 +87,20 @@ namespace Labo_2_F.A.Guimont
         /// </summary>
         public void diminuerInventaire()
         {
-            if(m_quantite > 0)
-                m_quantite--;
+            if(m_quantite > 0)  //si la quantité est plus grand que zéro
+                m_quantite--;   //diminue la quantité
 
             else
-                m_quantite = 0;
+                m_quantite = 0; // la quantité est a zéro
         }
 
+        /// <summary>
+        /// BONUS: retourne le nom de l'aliment
+        /// </summary>
+        /// <returns></returns>
         public string getNomAliment()
         {
-            return nomAliment[m_indexFood];
+            return nomAliment[m_indexFood];     //retourne le nom de l'aliment
         }
     }
 }

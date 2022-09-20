@@ -262,52 +262,57 @@
             // 
             // btn2Dollar
             // 
+            this.btn2Dollar.BackColor = System.Drawing.Color.White;
             this.btn2Dollar.Location = new System.Drawing.Point(84, 111);
             this.btn2Dollar.Name = "btn2Dollar";
             this.btn2Dollar.Size = new System.Drawing.Size(75, 23);
             this.btn2Dollar.TabIndex = 4;
             this.btn2Dollar.Text = "2.00$";
-            this.btn2Dollar.UseVisualStyleBackColor = true;
+            this.btn2Dollar.UseVisualStyleBackColor = false;
             this.btn2Dollar.Click += new System.EventHandler(this.btnPrice);
             // 
             // btn1Dollar
             // 
+            this.btn1Dollar.BackColor = System.Drawing.Color.White;
             this.btn1Dollar.Location = new System.Drawing.Point(3, 111);
             this.btn1Dollar.Name = "btn1Dollar";
             this.btn1Dollar.Size = new System.Drawing.Size(75, 23);
             this.btn1Dollar.TabIndex = 3;
             this.btn1Dollar.Text = "1.00$";
-            this.btn1Dollar.UseVisualStyleBackColor = true;
+            this.btn1Dollar.UseVisualStyleBackColor = false;
             this.btn1Dollar.Click += new System.EventHandler(this.btnPrice);
             // 
             // btn25Cent
             // 
+            this.btn25Cent.BackColor = System.Drawing.Color.White;
             this.btn25Cent.Location = new System.Drawing.Point(165, 66);
             this.btn25Cent.Name = "btn25Cent";
             this.btn25Cent.Size = new System.Drawing.Size(75, 23);
             this.btn25Cent.TabIndex = 2;
             this.btn25Cent.Text = "0.25$";
-            this.btn25Cent.UseVisualStyleBackColor = true;
+            this.btn25Cent.UseVisualStyleBackColor = false;
             this.btn25Cent.Click += new System.EventHandler(this.btnPrice);
             // 
             // btn10Cent
             // 
+            this.btn10Cent.BackColor = System.Drawing.Color.White;
             this.btn10Cent.Location = new System.Drawing.Point(84, 66);
             this.btn10Cent.Name = "btn10Cent";
             this.btn10Cent.Size = new System.Drawing.Size(75, 23);
             this.btn10Cent.TabIndex = 1;
             this.btn10Cent.Text = "0.10$";
-            this.btn10Cent.UseVisualStyleBackColor = true;
+            this.btn10Cent.UseVisualStyleBackColor = false;
             this.btn10Cent.Click += new System.EventHandler(this.btnPrice);
             // 
             // btn5Cent
             // 
+            this.btn5Cent.BackColor = System.Drawing.Color.White;
             this.btn5Cent.Location = new System.Drawing.Point(3, 66);
             this.btn5Cent.Name = "btn5Cent";
             this.btn5Cent.Size = new System.Drawing.Size(75, 23);
             this.btn5Cent.TabIndex = 0;
             this.btn5Cent.Text = "0.05$";
-            this.btn5Cent.UseVisualStyleBackColor = true;
+            this.btn5Cent.UseVisualStyleBackColor = false;
             this.btn5Cent.Click += new System.EventHandler(this.btnPrice);
             // 
             // LcdScreen
