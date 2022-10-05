@@ -20,3 +20,14 @@ C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj.CoreCompileInputs.cache
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.exe
 C:\Users\fagui\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.pdb
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\bin\Debug\Labo_1.exe.config
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\bin\Debug\Labo_1.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\bin\Debug\Labo_1.pdb
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj.AssemblyReference.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj.SuggestedBindingRedirects.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.Form1.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.Properties.Resources.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj.GenerateResource.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo_1\obj\Debug\Labo_1.pdb
