@@ -1,0 +1,12 @@
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\bin\Debug\Labo4_StationMeteo_F.A.Guimont.exe.config
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\bin\Debug\Labo4_StationMeteo_F.A.Guimont.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\bin\Debug\Labo4_StationMeteo_F.A.Guimont.pdb
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.csproj.AssemblyReference.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.csproj.SuggestedBindingRedirects.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.Form1.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.Properties.Resources.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.csproj.GenerateResource.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.pdb
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo4_StationMeteo_F.A.Guimont\obj\Debug\Labo4_StationMeteo_F.A.Guimont.frmConfigPort.resources
