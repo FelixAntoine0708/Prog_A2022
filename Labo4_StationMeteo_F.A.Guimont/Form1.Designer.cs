@@ -37,6 +37,12 @@
             this.toolBtnConfig = new System.Windows.Forms.ToolStripDropDownButton();
             this.portToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.temps = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Temperature = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vitesse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.humidity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pression = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -96,14 +102,14 @@
             // enregistrerSousToolStripMenuItem
             // 
             this.enregistrerSousToolStripMenuItem.Name = "enregistrerSousToolStripMenuItem";
-            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enregistrerSousToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.enregistrerSousToolStripMenuItem.Text = "Enregistrer sous ...";
             this.enregistrerSousToolStripMenuItem.Click += new System.EventHandler(this.enregistrerSousToolStripMenuItem_Click);
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.quitterToolStripMenuItem.Text = "Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -128,11 +134,54 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 419);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.temps,
+            this.Temperature,
+            this.vitesse,
+            this.direction,
+            this.humidity,
+            this.Pression});
+            this.dataGridView1.Location = new System.Drawing.Point(85, 414);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 150);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(643, 155);
             this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // temps
+            // 
+            this.temps.HeaderText = "temps";
+            this.temps.Name = "temps";
+            this.temps.ReadOnly = true;
+            // 
+            // Temperature
+            // 
+            this.Temperature.HeaderText = "Température (°C)";
+            this.Temperature.Name = "Temperature";
+            this.Temperature.ReadOnly = true;
+            // 
+            // vitesse
+            // 
+            this.vitesse.HeaderText = "vitesse vent (km/h)";
+            this.vitesse.Name = "vitesse";
+            this.vitesse.ReadOnly = true;
+            // 
+            // direction
+            // 
+            this.direction.HeaderText = "direction vent";
+            this.direction.Name = "direction";
+            this.direction.ReadOnly = true;
+            // 
+            // humidity
+            // 
+            this.humidity.HeaderText = "Humidity (%)";
+            this.humidity.Name = "humidity";
+            this.humidity.ReadOnly = true;
+            // 
+            // Pression
+            // 
+            this.Pression.HeaderText = "Pression (kPa)";
+            this.Pression.Name = "Pression";
+            this.Pression.ReadOnly = true;
             // 
             // statusStrip1
             // 
@@ -174,7 +223,7 @@
             // txtTemperature
             // 
             this.txtTemperature.Enabled = false;
-            this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTemperature.Location = new System.Drawing.Point(3, 61);
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.ReadOnly = true;
@@ -204,7 +253,7 @@
             // txtHumidity
             // 
             this.txtHumidity.Enabled = false;
-            this.txtHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHumidity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHumidity.Location = new System.Drawing.Point(3, 61);
             this.txtHumidity.Name = "txtHumidity";
             this.txtHumidity.ReadOnly = true;
@@ -237,7 +286,7 @@
             // txtWindDirection
             // 
             this.txtWindDirection.Enabled = false;
-            this.txtWindDirection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWindDirection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWindDirection.Location = new System.Drawing.Point(3, 188);
             this.txtWindDirection.Name = "txtWindDirection";
             this.txtWindDirection.ReadOnly = true;
@@ -247,7 +296,7 @@
             // txtWindSpeed
             // 
             this.txtWindSpeed.Enabled = false;
-            this.txtWindSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWindSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWindSpeed.Location = new System.Drawing.Point(3, 90);
             this.txtWindSpeed.Name = "txtWindSpeed";
             this.txtWindSpeed.ReadOnly = true;
@@ -297,7 +346,7 @@
             // txtPression
             // 
             this.txtPression.Enabled = false;
-            this.txtPression.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPression.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPression.Location = new System.Drawing.Point(3, 61);
             this.txtPression.Name = "txtPression";
             this.txtPression.ReadOnly = true;
@@ -359,6 +408,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.toolStrip1.ResumeLayout(false);
@@ -412,6 +462,12 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temps;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Temperature;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vitesse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn humidity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pression;
     }
 }
 
