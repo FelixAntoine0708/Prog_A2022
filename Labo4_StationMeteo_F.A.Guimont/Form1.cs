@@ -8,30 +8,26 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.IO;
+using System.Threading;
 
 namespace Labo4_StationMeteo_F.A.Guimont
 {
     public partial class Form1 : Form
     {
-        public delegate void monProtoDelegate(List<byte> ligneRecu); //étape #1: définir prototype de fonction... paramètres d'entrée et de retour
-        monProtoDelegate objDelegate;  //étape #2: on se déclare un objet delegate. (i.e. un pointeur de fonction ayant ce prototype)
+        Thread objTh;  //On fera tourner l'objet objThUDP dans un Thread pour la rx de la trame
+        ThreadRXUDP objUDP;
+
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         List<byte> m_lstTrameRx = new List<byte>();
         private int m_alreadyRecieve = 0;
-        //List<byte> m_alreadyRecieve = new List<byte>();
         const Byte SOH = 0x01;
         const int LIMITE_BUFFER = 128;
-
+        const int MAX_TRAME_TOIT = 21;
 
         enum enumTrame // les différentes positions sont les index des différents bytes
         {
@@ -56,8 +52,13 @@ namespace Labo4_StationMeteo_F.A.Guimont
         public Form1()
         {
             InitializeComponent();
-            objDelegate = methodeDelegeAffiche; //avoir les threads
+            
             serialPort.Encoding = Encoding.GetEncoding(28591);    //pour avoir les accents
+
+            objUDP = new ThreadRXUDP(this);
+            objUDP.objDelegate = methodeDelegeAffiche; //avoir les threads
+            objTh = new Thread(objUDP.FaitTravail);
+            objTh.Start();
 
             affiche_Com();
         }
@@ -72,6 +73,7 @@ namespace Labo4_StationMeteo_F.A.Guimont
             int nbALire;
             byte[] lecture = new byte[LIMITE_BUFFER];
             nbALire = serialPort.BytesToRead;  //on a reçu combien de bytes
+            string[] portDispo = System.IO.Ports.SerialPort.GetPortNames();
 
             if (nbALire > 0)  //Petit test car, de temps en temps on a un événement dataReceive et il n'y a pas de bytes à lire !!!!
             {
@@ -84,17 +86,14 @@ namespace Labo4_StationMeteo_F.A.Guimont
 
                 m_alreadyRecieve += nbALire;
 
-                if(m_lstTrameRx.Count == (int)enumTrame.maxTrame)
+                if(m_alreadyRecieve == (int)enumTrame.maxTrame)
                 {
                     if (verifTrame(m_lstTrameRx))
-                        BeginInvoke(objDelegate, m_lstTrameRx);
+                            BeginInvoke(objUDP.objDelegate, m_lstTrameRx, serialPort.PortName);
                 }
-                    //m_lstTrameRx.Clear();
-                    //m_alreadyRecieve = 0;
 
-                else if (m_alreadyRecieve > (int)enumTrame.maxTrame)
+                if(m_alreadyRecieve > (int)enumTrame.maxTrame)
                 {
-                    MessageBox.Show("erreur dans l'envoie de la trame");
                     m_lstTrameRx.Clear();
                     m_alreadyRecieve = 0;
                 }
@@ -105,31 +104,83 @@ namespace Labo4_StationMeteo_F.A.Guimont
         /// met les bytes dans le DataGridView
         /// </summary>
         /// <param name="trame"></param>
-        private void methodeDelegeAffiche(List<byte> trame)
+        private void methodeDelegeAffiche(List<byte> trame, string srclp)
         {
-            string temps = string.Format("{0:HH:mm:ss tt}", DateTime.Now);  // prend le temps 
+            if(verifTrame(trame))
+            {
+                string temps = string.Format("{0:HH:mm:ss tt}", DateTime.Now);  // prend le temps 
 
-            string tempe = Convert.ToString((sbyte)trame[1]);   // convertie en string la température
-            string dotTempe = Convert.ToString(trame[2]); // convertie en string la température fractionnaire 
-            string humide = Convert.ToString(trame[3]); // convertie en string l'humidité
-            string speed = Convert.ToString(trame[5]);  // convertie en string la vitesse du vent
-            string windDir = Convert.ToString((enumDirVent)trame[4]);   // convertie en string la direction du vent
-            string press = Convert.ToString(trame[6]);  // convertie en string la pression
-            string dotpress = Convert.ToString(trame[7]); // convertie en string la pression fractionnaire
+                string tempe = Convert.ToString((sbyte)trame[1]);   // convertie en string la température
+                string dotTempe = Convert.ToString(trame[2]); // convertie en string la température fractionnaire 
+                string humide = Convert.ToString(trame[3]); // convertie en string l'humidité
+                string speed = Convert.ToString(trame[5]);  // convertie en string la vitesse du vent
+                string windDir = Convert.ToString((enumDirVent)trame[4]);   // convertie en string la direction du vent
+                if (windDir.All(char.IsDigit))
+                    windDir = "Invalide";
 
-            txtTemperature.Text = tempe+"."+dotTempe;    // écrit dans la case la temépature 
-            txtHumidity.Text = humide;  // écrit dans la case l'humidité
-            txtWindSpeed.Text = speed;  // écrit dans la case la vitesse du vent
-            txtWindDirection.Text = windDir;    // écrit dans la case la direction du vent
-            txtPression.Text = press + "." + dotpress;   // écrit dans la case la pression
+                string press = Convert.ToString(trame[6]);  // convertie en string la pression
+                string dotpress = Convert.ToString(trame[7]); // convertie en string la pression fractionnaire
 
-            dataGridView1.Rows.Insert(0,temps, tempe + "." + dotTempe, speed, windDir, humide, press + "." + dotpress);   // inseret tout dans la grille 
+                txtTemperature.Text = tempe + "." + dotTempe;    // écrit dans la case la temépature 
+                txtHumidity.Text = humide;  // écrit dans la case l'humidité
+                txtWindSpeed.Text = speed;  // écrit dans la case la vitesse du vent
+                txtWindDirection.Text = windDir;    // écrit dans la case la direction du vent
+                txtPression.Text = press + "." + dotpress;   // écrit dans la case la pression
 
-            dataGridView1.Rows[0].Selected = true;  // sélection la première 
-            dataGridView1.Rows[1].Selected = false; // désélection la deuxième
+                dataGridView1.Rows.Insert(0, temps, srclp, tempe + "." + dotTempe, speed, windDir, humide, press + "." + dotpress);   // inseret tout dans la grille 
 
-            m_lstTrameRx.Clear();   // efface tout dans la trame
-            m_alreadyRecieve = 0;   // efface ou on était rendu 
+                dataGridView1.Rows[0].Selected = true;  // sélection la première 
+                dataGridView1.Rows[1].Selected = false; // désélection la deuxième
+
+                trame.Clear();   // efface tout dans la trame
+                m_lstTrameRx.Clear();
+                m_alreadyRecieve = 0;   // efface ou on était rendu 
+            }
+
+            else if(verifTrameToit(trame))
+            {
+                string temps = string.Format("{0:HH:mm:ss tt}", DateTime.Now);  // prend le temps 
+
+                float temp1 = (short)(trame[2] << 8 | trame[3]);
+                temp1 = temp1 / 10;
+                float temp2 = (byte)(trame[5] << 8 | trame[6]);
+                temp2 = temp2 /10;
+                float temp3 = (byte)(trame[8] << 8 | trame[9]);
+                temp3 = temp3 / 10;
+                float temp4 = (byte)(trame[11] << 8 | trame[12]);
+                temp4 = temp4 / 10;
+                float dirventByte = (byte)(trame[15] << 8 | trame[16]);
+                dirventByte = dirventByte / 10;
+                float radSunByte = (byte)(trame[18] << 8 | trame[19]);
+                radSunByte = radSunByte / 10;
+                string temp1Int = Convert.ToString(temp1);
+                string temp2Ext = Convert.ToString(temp2);
+                string temp3Ext = Convert.ToString(temp3);
+                string temp4Int = Convert.ToString(temp4);
+                string hum1 = Convert.ToString(trame[4]);
+                string hum2 = Convert.ToString(trame[7]);
+                string hum3 = Convert.ToString(trame[10]);
+                string press = Convert.ToString(trame[13]);
+                string pressdot = Convert.ToString(trame[14]);
+                string dirVent = Convert.ToString(dirventByte);
+                string vitVent = Convert.ToString(trame[17]);
+                string radSun = Convert.ToString(radSunByte);
+
+                txtTemperature.Text = temp2Ext;
+                txtHumidity.Text = hum2;
+                txtWindSpeed.Text = vitVent;
+                txtWindDirection.Text = dirVent;
+                txtPression.Text = press + "." + pressdot;
+
+                dataGridView1.Rows.Insert(0, temps, srclp, temp1Int, temp2Ext, temp3Ext, temp4Int, hum1, hum2, hum3, press + "." + pressdot, dirVent, vitVent, radSun);
+
+                dataGridView1.Rows[0].Selected = true;  // sélection la première 
+                dataGridView1.Rows[1].Selected = false; // désélection la deuxième
+
+                trame.Clear();   // efface tout dans la trame
+                m_lstTrameRx.Clear();
+                m_alreadyRecieve = 0;   // efface ou on était rendu 
+            }
         }
 
         /// <summary>
@@ -275,36 +326,28 @@ namespace Labo4_StationMeteo_F.A.Guimont
         /// <returns></returns>
         private bool verifTrame(List<byte> trame) 
         {
-            int rep = 0;
-            int soh = 0;
             int ck = 0;
-            int compte = 0;
 
-            if (trame[0] == SOH)    //si le SOH est présent
-                soh = 1;    //le SOH est bon 
-
-            if (trame.Count == (int)enumTrame.maxTrame) // si le compte de bytes est bon 
+            if (trame[0] != SOH)    //si le SOH n'est pas présent
             {
-                compte = 1; // le compte est bon
-
-                if(trame[12] == calculChecksum(trame))  // si le checksum correspond a celui envoyer
-                {
-                    ck = 1; // le checksum est bon
-                }
+                trame.Clear();
+                m_alreadyRecieve = 0;
+                return false;
             }
 
-            rep = compte + soh + ck;
+            if (trame.Count > (int)enumTrame.maxTrame) // si le compte de bytes n'est pas bon 
+                return false;
 
-            if(rep == 3)    // si les 3 sont bon 
-                return true;    // retourne vrai
+            ck = calculChecksum(trame);
 
-            else    // si la trame n<est pas bonne 
+            if (trame[12] < ck || trame[12] > ck)  // si le checksum ne correspond pas a celui envoyer
             {
-                MessageBox.Show("erreur dans l'envoie de la trame");    // affiche un message qui dit qu'elle n'est pas bonne
-                //m_lstTrameRx.Clear();
-                //m_alreadyRecieve = 0;
-                return false;   //retourne faux
-            }   
+                trame.Clear();
+                m_alreadyRecieve = 0;
+                return false;
+            }
+
+            return true;    // retourne vrai
         }
 
         /// <summary>
@@ -324,6 +367,43 @@ namespace Labo4_StationMeteo_F.A.Guimont
             ck = ck & 0x00FF;   // prend les 8 LSB du CheckSum
 
             return (byte)ck;    //retourne em bytes le CheckSum
+        }
+
+        private bool verifTrameToit(List<byte> trame)
+        {
+            int ck = 0;
+
+            if (trame[0] != SOH)    //si le SOH n'est pas présent
+            {
+                trame.Clear();
+                m_alreadyRecieve = 0;
+                return false;
+            }
+
+            if (trame.Count > MAX_TRAME_TOIT) // si le compte de bytes n'est pas bon 
+                return false;
+
+            ck = calculChecksum(trame) -1 ;
+
+            if (trame[20] < ck || trame[20] > ck)  // si le checksum ne correspond pas a celui envoyer
+            {
+                trame.Clear();
+                m_alreadyRecieve = 0;
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// s'applique quand on ferme la page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            objUDP.ArreteClientUDP();
+            objTh.Abort();
         }
     }
 }
