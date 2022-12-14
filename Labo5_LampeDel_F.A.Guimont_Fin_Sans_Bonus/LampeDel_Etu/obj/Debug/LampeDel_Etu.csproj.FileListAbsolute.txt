@@ -1,0 +1,11 @@
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\bin\Debug\LampeDel_Etu.exe.config
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\bin\Debug\LampeDel_Etu.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\bin\Debug\LampeDel_Etu.pdb
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.csproj.AssemblyReference.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.csproj.SuggestedBindingRedirects.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.Form1.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.Properties.Resources.resources
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.csproj.GenerateResource.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.csproj.CoreCompileInputs.cache
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.exe
+C:\Users\Utilisateur\Documents\22A\Prog\Labo\Prog_A2022\Labo5_LampeDel_F.A.Guimont\LampeDel_Etu\obj\Debug\LampeDel_Etu.pdb
